@@ -1,0 +1,19 @@
+﻿<div id="vueapp">
+    <input type="text" v-model="person.firstName" />
+    <input type="text" v-model="person.lastName" />
+    <br />
+    <span>
+        Text from input tag:
+    </span>
+    <p>{{person.firstName}}</p>
+    <br />
+    <span>Text from component Coup1: </span>
+    <br />
+    <comp1 v-bind:person="person"></comp1>
+
+    <!--<p>
+        <router-link to="/a">Go to A</router-link>
+        <router-link to="/b">Go to B</router-link>
+    </p>
+    <router-view></router-view>-->
+</div>
