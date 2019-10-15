@@ -1,32 +1,51 @@
-﻿@using App.Models;
+﻿
+@model IEnumerable<App.Models.Employee>
+
 @{
     ViewBag.Title = "Home Page";
 }
 
-<ul>
-    @foreach (var std in ViewData["employee"] as IList<Employee>)
-    {
-        <li>
-            @std.Name - @std.Address - @std.Birthday
-        </li>
-    }
-</ul>
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </th>
 
-<ul id="employee-vue">
-    <li v-for="value in object">
-        {{ value }}
-    </li>
-</ul>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Birthday)
+            </td>
+        </tr>
+
+    }
+
+</table>
+
+<div>
+    <a href="@Url.Action("DownloadExcel","Home")">Download Excel</a>
+</div>
 
 <script>
-
-    var vn = new Vue({
+    new Vue({
         el: '#employee-vue',
         data: {
-            object: {
-
-            }
+            message: "dadasdas"
         }
-    })
+    });
 
 </script>
