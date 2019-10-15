@@ -1,0 +1,32 @@
+﻿@using App.Models;
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<ul>
+    @foreach (var std in ViewData["employee"] as IList<Employee>)
+    {
+        <li>
+            @std.Name - @std.Address - @std.Birthday
+        </li>
+    }
+</ul>
+
+<ul id="employee-vue">
+    <li v-for="value in object">
+        {{ value }}
+    </li>
+</ul>
+
+<script>
+
+    var vn = new Vue({
+        el: '#employee-vue',
+        data: {
+            object: {
+
+            }
+        }
+    })
+
+</script>
